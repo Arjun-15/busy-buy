@@ -1,0 +1,141 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  z-index: 1001;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  width: 800px;
+  max-width: 90%;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.product-form-actions button {
+  margin-right: 10px;
+}
+.add-product-btn{
+  float: right;
+  margin-right: 30px;
+  background: linear-gradient(0deg, skyblue, purple, pink);
+  color: #fff;
+  height: 34px;
+  border-radius: 10px;
+  font-weight: 600;
+  border-color: #fff;
+}
+.product-form{
+
+}
+.product-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-input label{
+  font-weight: 600;
+  font-size: large;
+}
+.product-input input{
+  font-weight: 600;
+  font-size: large;
+  margin: 5px;
+  padding: 10px;
+  width: 600px;
+}
+.product-input textarea{
+  font-size: large;
+  margin: 5px;
+  padding: 10px;
+  width: 600px;
+}
+.product-input select{
+  font-size: large;
+  margin: 5px;
+  padding: 10px;
+  width: 622px;
+}
+.product-form-actions button:first-child{
+    margin-right: 30px;
+    background: linear-gradient(0deg, rgb(250, 28, 132), rgb(223, 17, 223), rgb(221, 29, 61));
+    color: #fff;
+    height: 34px;
+    border-radius: 10px;
+    font-weight: 600;
+    border-color: #fff;
+}
+.product-form-actions button{
+    margin-right: 30px;
+    background: linear-gradient(0deg, skyblue, purple, pink);
+    color: #fff;
+    height: 34px;
+    border-radius: 10px;
+    font-weight: 600;
+    border-color: #fff;
+}
+.product-form-actions{
+  margin: 10px;
+}
+
