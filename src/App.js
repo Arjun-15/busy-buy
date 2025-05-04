@@ -15,6 +15,9 @@ import SignUp from "./pages/Users/SignUp";
 import Cart from "./pages/Carts";
 import Orders from "./pages/Orders";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { OrdersProvider } from "./context/orderContext";
+import { CartProvider } from "./context/cartContext";
+import ProductForm from "./components/ProductForm";
 
 function App() {
   const { setAuthUser } = useAuthContext(); // Access setAuthUser from context
@@ -52,12 +55,14 @@ function App() {
               <Products showForm={true} />{" "}
             </ProtectedRoute>
           ),
-        },
+        },{path:'addProduct',element:(<ProtectedRoute><ProductForm /></ProtectedRoute>),},
         {
           path: "cart",
           element: (
             <ProtectedRoute>
-              <Cart />
+              <CartProvider>
+                <Cart />
+              </CartProvider>
             </ProtectedRoute>
           ),
         },
@@ -65,7 +70,9 @@ function App() {
           path: "myorders",
           element: (
             <ProtectedRoute>
-              <Orders />
+              <OrdersProvider>
+                <Orders />
+              </OrdersProvider>
             </ProtectedRoute>
           ),
         },
@@ -88,7 +95,6 @@ function App() {
         />
 
         <RouterProvider router={browerRouter} />
-
       </ProductsContextProvider>
     </div>
   );

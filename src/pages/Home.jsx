@@ -4,12 +4,10 @@ import { useProductContext } from "../context/productContext";
 import Loader from "../components/Loader";
 import FilterSidebar from "../components/FilterSidebar";
 import ProductList from "./Products/ProductList";
-// import { getAuth } from "firebase/auth";
-// import { addDataToCollection } from "../../utils/utils";
 
 function Home() {
     const [query, setQuery] = useState("");
-    const [priceRange, setPriceRange] = useState(75000);
+    const [priceRange, setPriceRange] = useState({min:0,max:75000});
     const [categories, setCategories] = useState({
         mensFashion: false,
         electronics: false,
@@ -18,7 +16,6 @@ function Home() {
     });
 
     const {
-        products,
         loading,
         getAllProducts,
         filteredProducts,
@@ -28,7 +25,6 @@ function Home() {
     // Fetch products on app mount
     useEffect(() => {
         getAllProducts();
-        // addDataToCollection();
     }, []);
 
     // Rerender the products if the search or filter parameters change
@@ -57,8 +53,8 @@ function Home() {
                     onChange={(e) => setQuery(e.target.value)}
                 />
             </form>
-            {products.length ? (
-                <ProductList products={products.length ? filteredProducts : null} />
+            {filteredProducts.length ? (
+                <ProductList products={filteredProducts.length ? filteredProducts : null} />
             ) : null}
         </div>
     );

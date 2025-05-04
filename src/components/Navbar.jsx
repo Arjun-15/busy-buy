@@ -10,7 +10,7 @@ function Navbar() {
                 <div className="navbar-container">
                     <NavLink className={({ isActive }) => isActive ? 'navbar-logo active' : 'navbar-logo'} to="/">
                         <img src='https://cdn-icons-png.flaticon.com/128/15220/15220714.png' alt='home' className='icon_styles' />
-                        Busy Buy
+                        <span>Busy Buy</span>
                     </NavLink>
                     <ul className='nav-menu'>
                         <li className="nav-item">
@@ -41,17 +41,22 @@ function Navbar() {
                             <li className="nav-item">
                                 <NavLink className={({ isActive }) => isActive ? 'nav-links active' : 'nav-links'} to="/logout">
                                     <span>
-                                        <img className="icon_styles" src="https://cdn-icons-png.flaticon.com/128/1348/1348448.png" alt="Cart" />
+                                        <img className="icon_styles" src="https://cdn-icons-png.flaticon.com/128/1348/1348448.png" alt="Logout" />
                                     </span>
                                     Logout
                                 </NavLink>
                             </li>
+                            {/* <li className='nav-item'>
+                                <NavLink className={({isActive})=> isActive ? 'nav-links active': 'nav-links'} to='/addProduct' style={{paddingLeft:20}}>
+                                    +
+                                </NavLink>
+                            </li> */}
                         </>
                             :
                             <li className="nav-item">
                                 <NavLink className={({ isActive }) => isActive ? 'nav-links active' : 'nav-links'} to="/signin">
                                     <span>
-                                        <img className="icon_styles" src="https://cdn-icons-png.flaticon.com/128/2996/2996170.png" alt="Cart" />
+                                        <img className="icon_styles" src="https://cdn-icons-png.flaticon.com/128/2996/2996170.png" alt="SignIn" />
                                     </span>
                                     SignIn
                                 </NavLink>

@@ -6,7 +6,7 @@ const FilterSidebar = ({ setCategories, setPriceRange, priceRange }) => {
     <aside className={styles.filterContainer}>
       <h2>Filter</h2>
       <form>
-        <label htmlFor="price">Price: {priceRange}</label>
+        <label htmlFor="price">Price: {priceRange.max}</label>
         <input
           type="range"
           id="price"
@@ -14,8 +14,8 @@ const FilterSidebar = ({ setCategories, setPriceRange, priceRange }) => {
           min="1"
           max="100000"
           className={styles.priceRange}
-          value={priceRange}
-          onChange={(e) => setPriceRange(e.target.value)}
+          value={priceRange.max}
+          onChange={(e) => setPriceRange({min:0,max:e.target.value})}
           step="10"
         />
         <h2>Category</h2>

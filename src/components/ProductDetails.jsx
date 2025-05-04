@@ -37,7 +37,7 @@ const ProductDetails = ({
             const { data, docRef } = await getUserCartProducts(user.uid);
 
             // If cart exists then update the cart
-            if (data && data.myCart[productId]) {
+            if (data  && data.myCart && data.myCart[productId]) {
                 const { myCart: cart } = data;
                 const currentProductCount = cart[productId];
                 const updatedCart = {
@@ -76,7 +76,6 @@ const ProductDetails = ({
     // Handling the product quantity increase
     const handleAdd = async () => {
         try {
-            debugger;
             const { data, docRef } = await getUserCartProducts(user.uid);
 
             const { myCart: cart } = data;
@@ -138,7 +137,7 @@ const ProductDetails = ({
         <div className={styles.productDetails}>
             <div className={styles.productName}>
                 {isDecription ? <p>{title}</p> :
-                    <p>{`${title.slice(0, 35)}...`}</p>}
+                    <p>{`${title.slice(0, 30)}...`}</p>}
                 {isDecription && <span>{description}</span>}
             </div>
             <div className={styles.productOptions}>

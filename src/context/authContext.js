@@ -152,7 +152,7 @@ export const AuthContextProvider = ({ children }) => {
     changeLoadingState,
   };
 
-  console.log("AuthContext Value: ", value); // Log the context value
+  // console.log("AuthContext Value: ", value); // Log the context value
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

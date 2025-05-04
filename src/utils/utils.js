@@ -1,4 +1,4 @@
-import data from "./data";
+// import data from "./data";
 import {
   doc,
   writeBatch,
@@ -11,19 +11,19 @@ import {
 import { firebaseDB } from "../firebaseInit";
 
 // Add data to the products collection only for one time so that they can be used again.
-const addDataToCollection = async () => {
-  try {
-    const batch = writeBatch(firebaseDB);
-    data.forEach((product) => {
-      const docRef = doc(firebaseDB, "products", product.id.toString());
-      batch.set(docRef, product);
-    });
+// const addDataToCollection = async () => {
+//   try {
+//     const batch = writeBatch(firebaseDB);
+//     data.forEach((product) => {
+//       const docRef = doc(firebaseDB, "products", product.id.toString());
+//       batch.set(docRef, product);
+//     });
 
-    await batch.commit();
-  } catch (error) {
-    console.log(error);
-  }
-};
+//     await batch.commit();
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 // Fetch products from firestore based on their ids
 const getProductsUsingProductIds = async (cart) => {
@@ -70,10 +70,23 @@ const getUserCartProducts = async (uid) => {
 const convertDate = (date) => {
   return new Date(date).toISOString().split("T")[0];
 };
+const isNullOrEmpty = (str) => {
+  return str === undefined && str === null
+}
+const IsValidNumber = (str, min, max) => {
+  const val = parseInt(str);
+  if (isNaN(val)) return 0;
 
+  if (!isNullOrEmpty(min) && val < min) return min;
+  if (!isNullOrEmpty(max) && val > max) return max;
+
+  return val;
+}
 export {
-  addDataToCollection,
+  // addDataToCollection,
+  IsValidNumber,
   getProductsUsingProductIds,
   getUserCartProducts,
   convertDate,
+  isNullOrEmpty
 };
